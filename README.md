@@ -2,7 +2,7 @@
 
 Encrypt files with RSA
 
-# Synopsis
+## Synopsis
 
 ```sh
 # Usage:
@@ -27,7 +27,9 @@ rsacrypt -g -s 2048
 rsacrypt -g -s 8192 -pubkey my-key.pub -privkey private.pem
 ```
 
-# Performances
+## Performances
+
+Done with checks.sh
 
 ```
  [✔︎] File 1k   (1024 bytes)
