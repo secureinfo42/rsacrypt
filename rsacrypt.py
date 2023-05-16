@@ -72,7 +72,11 @@ def usage(errcode=0):
 ##
 
 def rsa_getsize(keyfile):
-	return(RSA.importKey( open(keyfile,"rb").read() ).size_in_bits())
+	try:
+		return(RSA.importKey( open(keyfile,"rb").read() ).size_in_bits())
+	except Exception as error:
+		print(error)
+		exit(1)
 
 def rsa_keygen(key_size,keyfile_private="key.pem",keyfile_public="key.pub"):
 	key = RSA.generate(key_size)
@@ -199,12 +203,13 @@ if op == "keygen":
 
 	key_size = int(key_size)
 	rsa_keygen(key_size,privkey,pubkey)
+	print(f"Private key: {privkey}\nPublic key : {pubkey}")
 
 elif op == "encode":
 
-	rsa_file_encrypt(infile,outfile)
+	rsa_file_encrypt(infile,outfile,pubkey)
 
 elif op == "decode":
 
-	rsa_file_decrypt(infile,outfile)
+	rsa_file_decrypt(infile,outfile,privkey)
 
