@@ -6,7 +6,7 @@ Encrypt files with RSA
 
 ```sh
 # Usage:
-rsacrypt [-e|-d|-g] [-f file] [-o outfile] [-pubkey key.pub] [-privkey key.pem] [-v]
+rsacrypt [-e|-d|-g] [-s keysize] [-f file] [-o outfile] [-pubkey key.pub] [-privkey key.pem] [-v]
 
 # Exemples:
 
